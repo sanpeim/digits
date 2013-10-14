@@ -11,7 +11,7 @@ import play.data.validation.ValidationError;
  */
 public class ContactFormData {
 
-  public static final int NUM_TELE_CHARS = 12;
+  public static final int NUM_TELE_CHARS = 10;
   
   /** the first name form field. */
   public String firstName = "";
