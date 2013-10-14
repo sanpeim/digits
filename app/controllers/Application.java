@@ -44,7 +44,7 @@ public class Application extends Controller {
     }
     else {
       ContactFormData data = formData.get();
-      System.out.println("OK" + data.firstName + " " + data.lastName + " " + data.telephone);
+      System.out.println("OK" + data.firstName + " " + data.lastName + " " + data.telephone + " " + data.address);
       return ok(NewContact.render(formData));
     }
   }

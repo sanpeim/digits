@@ -12,6 +12,7 @@ import play.data.validation.ValidationError;
 public class ContactFormData {
 
   public static final int NUM_TELE_CHARS = 12;
+  public static final int NUM_ADDRESS_CHARS = 25;
   
   /** the first name form field. */
   public String firstName = "";
@@ -19,6 +20,8 @@ public class ContactFormData {
   public String lastName = "";
   /** the telephone form field. */
   public String telephone = "";
+  /** the address form field. */
+  public String address = "";
   
   /**
    * Validates the form input by user.
@@ -44,6 +47,14 @@ public class ContactFormData {
 
     if (telephone.length() != NUM_TELE_CHARS) {
       errors.add(new ValidationError("telephone", "Telephone must be xxx-xxx-xxx"));
+    }
+    
+    if (address == null || address.length() == 0) {
+      errors.add(new ValidationError("address", "Address is Required"));
+    }
+
+    if (address.length() < NUM_ADDRESS_CHARS) {
+      errors.add(new ValidationError("address", "Address must be at least 25 characters"));
     }
 
     return errors.isEmpty() ? null : errors;
