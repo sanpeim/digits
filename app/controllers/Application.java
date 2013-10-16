@@ -30,7 +30,6 @@ public class Application extends Controller {
     ContactFormData data = (id == 0) ? new ContactFormData() : new ContactFormData(ContactDB.getContact(id));
     Form<ContactFormData> formData = Form.form(ContactFormData.class).fill(data);
     return ok(NewContact.render(formData));
-
   }
 
   /**
@@ -49,5 +48,10 @@ public class Application extends Controller {
       ContactDB.addContact(data);
       return ok(NewContact.render(formData));
     }
+  }
+  
+  public static Result deleteContact(long id){
+    ContactDB.deleteContact(id);
+    return ok(Index.render(ContactDB.getContacts()));
   }
 }

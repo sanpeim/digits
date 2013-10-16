@@ -46,5 +46,17 @@ public class ContactDB {
     }
     return contact;
   }
+  
+  /**
+   * Deletes a contact with given ID
+   * @param id
+   */
+  public static void deleteContact(long id) {
+    Contact contact = contacts.get(id);
+    if (contact == null) {
+      throw new RuntimeException("Gave a bad ID" + id);
+    }
+    contact = null;
+  }
 
 }

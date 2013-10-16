@@ -74,5 +74,12 @@ public class Contact {
   public long getId() {
     return id;
   }
+  
+  /**
+   * @param sets id.
+   */
+  public void setId(long id) {
+    this.id = id;
+  }
 
 }
