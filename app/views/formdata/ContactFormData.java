@@ -2,6 +2,7 @@ package views.formdata;
 
 import java.util.ArrayList;
 import java.util.List;
+import models.Contact;
 import play.data.validation.Validation;
 import play.data.validation.ValidationError;
 
@@ -11,15 +12,35 @@ import play.data.validation.ValidationError;
  */
 public class ContactFormData {
 
-  public static final int NUM_TELE_CHARS = 10;
+  public static final int NUM_TELE_CHARS = 12;
   
+  /** the id field */
+  public long id;
   /** the first name form field. */
   public String firstName = "";
   /** the last name form field. */
   public String lastName = "";
   /** the telephone form field. */
   public String telephone = "";
-  
+
+  /**
+   * Default constructor.
+   */
+  public ContactFormData() {
+   //default constructor
+  }
+
+  /**
+   * Creates contactFormData based off contact.
+   * @param contact
+   */
+  public ContactFormData(Contact contact) {
+    this.id = contact.getId();
+    this.firstName = contact.getFirstName();
+    this.lastName = contact.getLastName();
+    this.telephone = contact.getTelephone();
+  }
+
   /**
    * Validates the form input by user.
    * All field non-empty.
@@ -43,7 +64,7 @@ public class ContactFormData {
     }
 
     if (telephone.length() != NUM_TELE_CHARS) {
-      errors.add(new ValidationError("telephone", "Telephone must be xxx-xxx-xxx"));
+      errors.add(new ValidationError("telephone", "Telephone must be xxx-xxx-xxxx"));
     }
 
     return errors.isEmpty() ? null : errors;
