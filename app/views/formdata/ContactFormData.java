@@ -13,7 +13,7 @@ import play.data.validation.ValidationError;
 public class ContactFormData {
 
   public static final int NUM_TELE_CHARS = 12;
-  
+
   /** the id field */
   public long id;
   /** the first name form field. */
@@ -22,6 +22,8 @@ public class ContactFormData {
   public String lastName = "";
   /** the telephone form field. */
   public String telephone = "";
+  /** the telephone type. */
+  public String telephoneType = "";
 
   /**
    * Default constructor.
@@ -39,6 +41,7 @@ public class ContactFormData {
     this.firstName = contact.getFirstName();
     this.lastName = contact.getLastName();
     this.telephone = contact.getTelephone();
+    this.telephoneType = contact.getTelephoneType();
   }
 
   /**
@@ -65,6 +68,10 @@ public class ContactFormData {
 
     if (telephone.length() != NUM_TELE_CHARS) {
       errors.add(new ValidationError("telephone", "Telephone must be xxx-xxx-xxxx"));
+    }
+
+    if (!TelephoneTypes.isType(telephoneType)) {
+      errors.add(new ValidationError("telephoneType", "Telephone Type is invalid"));
     }
 
     return errors.isEmpty() ? null : errors;
