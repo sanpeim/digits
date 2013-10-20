@@ -37,7 +37,7 @@ public class ContactDB {
   }
 
   /**
-   * Returns a contact with given ID
+   * Returns a contact with given ID.
    */
   public static Contact getContact(long id) {
     Contact contact = contacts.get(id);
