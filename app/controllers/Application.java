@@ -27,6 +27,7 @@ public class Application extends Controller {
   /**
    * Returns NewContact, a simple form.
    * @return The NewContact Page.
+   * @param id the ID is sent.
    */
   public static Result newContact(long id) {
     ContactFormData data = (id == 0) ? new ContactFormData() : new ContactFormData(ContactDB.getContact(id));

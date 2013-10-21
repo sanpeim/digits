@@ -14,11 +14,11 @@ public class TelephoneTypes {
 
   /**
    *
-   * @return
+   * @return the type map.
    */
-  public static Map<String, Boolean> getTypes(){
+  public static Map<String, Boolean> getTypes() {
     Map<String, Boolean> typeMap = new HashMap<>();
-    for(String type: types) {
+    for (String type: types) {
       typeMap.put(type, false);
     }
     return typeMap;
@@ -26,12 +26,12 @@ public class TelephoneTypes {
 
   /**
    *
-   * @param telType
-   * @return
+   * @param telType the type.
+   * @return typemap.
    */
-  public static Map<String, Boolean> getTypes(String telType){
+  public static Map<String, Boolean> getTypes(String telType) {
     Map<String, Boolean> typeMap = TelephoneTypes.getTypes();
-    if(isType(telType)){
+    if (isType(telType)) {
       typeMap.put(telType, true);
     }
     return typeMap;
@@ -39,10 +39,10 @@ public class TelephoneTypes {
 
   /**
    *
-   * @param telType
-   * @return
+   * @param telType the type.
+   * @return telephone type.
    */
-  public static boolean isType(String telType){
+  public static boolean isType(String telType) {
     return TelephoneTypes.getTypes().keySet().contains(telType);
   }
 

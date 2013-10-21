@@ -15,11 +15,11 @@ public class Contact {
 
   /**
    * Creates a contact.
-   * @param id
-   * @param firstName
-   * @param lastName
-   * @param telephone
-   * @param telephoneType
+   * @param id the id.
+   * @param firstName first name.
+   * @param lastName last name.
+   * @param telephone telephone.
+   * @param telephoneType telephone type.
    */
   public Contact(long id, String firstName, String lastName, String telephone, String telephoneType) {
     this.id = id;
@@ -37,7 +37,7 @@ public class Contact {
   }
 
   /**
-   * @param sets first name.
+   * @param firstName sets first name.
    */
   public void setFirstName(String firstName) {
     this.firstName = firstName;
@@ -51,7 +51,7 @@ public class Contact {
   }
 
   /**
-   * @param sets last name.
+   * @param lastName sets last name.
    */
   public void setLastName(String lastName) {
     this.lastName = lastName;
@@ -65,7 +65,7 @@ public class Contact {
   }
 
   /**
-   * @param sets telephone.
+   * @param telephone sets telephone.
    */
   public void setTelephone(String telephone) {
     this.telephone = telephone;
@@ -86,7 +86,7 @@ public class Contact {
   }
 
   /**
-   * @param sets telephone type.
+   * @param telephoneType sets telephone type.
    */
   public void setTelephoneType(String telephoneType) {
     this.telephoneType = telephoneType;

@@ -23,7 +23,8 @@ public class ContactDB {
    */
   public static Contact addContact(ContactFormData formData) {
     long idVal = (formData.id == 0) ? contacts.size() + 1 : formData.id;
-    Contact contact = new Contact(idVal, formData.firstName, formData.lastName, formData.telephone, formData.telephoneType);
+    Contact contact = new Contact(idVal, formData.firstName, formData.lastName, 
+                                    formData.telephone, formData.telephoneType);
     contacts.put(idVal, contact);
     return contact;
   }
@@ -37,7 +38,8 @@ public class ContactDB {
   }
 
   /**
-   * Returns a contact with given ID.
+   * @param id the ID.
+   * @return Returns a contact with given ID.
    */
   public static Contact getContact(long id) {
     Contact contact = contacts.get(id);

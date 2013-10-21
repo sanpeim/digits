@@ -12,9 +12,10 @@ import play.data.validation.ValidationError;
  */
 public class ContactFormData {
 
+  /** the telephone limit. */
   public static final int NUM_TELE_CHARS = 12;
 
-  /** the id field */
+  /** the id field. */
   public long id;
   /** the first name form field. */
   public String firstName = "";
@@ -35,10 +36,10 @@ public class ContactFormData {
   
 
   /**
-   * @param firstName
-   * @param lastName
-   * @param telephone
-   * @param telephoneType
+   * @param firstName first name.
+   * @param lastName last name.
+   * @param telephone telephone.
+   * @param telephoneType telephone type.
    */
   public ContactFormData(String firstName, String lastName, String telephone, String telephoneType) {
     this.firstName = firstName;
@@ -51,7 +52,7 @@ public class ContactFormData {
 
   /**
    * Creates contactFormData based off contact.
-   * @param contact
+   * @param contact the contact.
    */
   public ContactFormData(Contact contact) {
     this.id = contact.getId();
