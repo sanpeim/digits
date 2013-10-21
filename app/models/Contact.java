@@ -12,6 +12,7 @@ public class Contact {
   private String lastName;
   private String telephone;
   private String telephoneType;
+  private String level;
 
   /**
    * Creates a contact.
@@ -21,12 +22,13 @@ public class Contact {
    * @param telephone telephone.
    * @param telephoneType telephone type.
    */
-  public Contact(long id, String firstName, String lastName, String telephone, String telephoneType) {
+  public Contact(long id, String firstName, String lastName, String telephone, String telephoneType, String level) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.telephone = telephone;
     this.telephoneType = telephoneType;
+    this.level = level;
   }
 
   /**
@@ -90,6 +92,21 @@ public class Contact {
    */
   public void setTelephoneType(String telephoneType) {
     this.telephoneType = telephoneType;
+  }
+
+
+  /**
+   * @return the level
+   */
+  public String getLevel() {
+    return level;
+  }
+
+  /**
+   * @param level the level to set
+   */
+  public void setLevel(String level) {
+    this.level = level;
   }
 
 }

@@ -3,6 +3,7 @@ package views.formdata;
 import java.util.ArrayList;
 import java.util.List;
 import models.Contact;
+import models.GradeLevel;
 import play.data.validation.Validation;
 import play.data.validation.ValidationError;
 
@@ -25,6 +26,8 @@ public class ContactFormData {
   public String telephone = "";
   /** the telephone type. */
   public String telephoneType = "";
+  
+  public String level = "";
 
   /**
    * Default constructor.
@@ -41,11 +44,12 @@ public class ContactFormData {
    * @param telephone telephone.
    * @param telephoneType telephone type.
    */
-  public ContactFormData(String firstName, String lastName, String telephone, String telephoneType) {
+  public ContactFormData(String firstName, String lastName, String telephone, String telephoneType, String level) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.telephone = telephone;
     this.telephoneType = telephoneType;
+    this.level = level;
   }
 
 
@@ -60,6 +64,7 @@ public class ContactFormData {
     this.lastName = contact.getLastName();
     this.telephone = contact.getTelephone();
     this.telephoneType = contact.getTelephoneType();
+    this.level = contact.getLevel();
   }
 
   /**

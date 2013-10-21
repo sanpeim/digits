@@ -1,15 +1,17 @@
 package controllers;
 
+import java.util.List;
 import java.util.Map;
 import models.ContactDB;
+import models.GradeLevel;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.formdata.ContactFormData;
 import views.formdata.TelephoneTypes;
+import views.formdata.ContactFormData;
 import views.html.Index;
 import views.html.NewContact;
-import views.formdata.ContactFormData;
 
 /**
  * Implements the controllers for this application.
@@ -33,7 +35,8 @@ public class Application extends Controller {
     ContactFormData data = (id == 0) ? new ContactFormData() : new ContactFormData(ContactDB.getContact(id));
     Form<ContactFormData> formData = Form.form(ContactFormData.class).fill(data);
     Map<String, Boolean> telephoneTypeMap = TelephoneTypes.getTypes(data.telephoneType);
-    return ok(NewContact.render(formData, telephoneTypeMap));
+    List<String> level = GradeLevel.getLevel(data.level);
+    return ok(NewContact.render(formData, telephoneTypeMap, level));
 
   }
 
@@ -46,13 +49,15 @@ public class Application extends Controller {
 
     if (formData.hasErrors()) {
       Map<String, Boolean> telephoneTypeMap = TelephoneTypes.getTypes();
-      return badRequest(NewContact.render(formData, telephoneTypeMap));
+      List<String> level = GradeLevel.getNameList();
+      return badRequest(NewContact.render(formData, telephoneTypeMap, level));
     }
     else {
       ContactFormData data = formData.get();
       ContactDB.addContact(data);
       Map<String, Boolean> telephoneTypeMap = TelephoneTypes.getTypes(data.telephoneType);
-      return ok(NewContact.render(formData, telephoneTypeMap));
+      List<String> level = GradeLevel.getLevel(data.level);
+      return ok(NewContact.render(formData, telephoneTypeMap, level));
     }
   }
 }

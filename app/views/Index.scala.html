@@ -4,7 +4,7 @@
    <div class="container">
      <h1>Current Contacts</h1>
      <table class="table table-stripped table-bordered">
-     <tr><th>First</th><th>Last</th><th>Phone</th><th>Type</th></tr>
+     <tr><th>First</th><th>Last</th><th>Phone</th><th>Type</th><th>Grade</th></tr>
 
      @for(contact <- contacts) {
         <tr>
@@ -12,6 +12,7 @@
         <td>@contact.getLastName()</td>
         <td>@contact.getTelephone()</td>
         <td>@contact.getTelephoneType()</td>
+        <td>@contact.getLevel()</td>
         <td><a href = "@routes.Application.newContact(contact.getId())">Edit</a></td>
         </tr>
      }
