@@ -31,6 +31,23 @@ public class ContactFormData {
   public ContactFormData() {
    //default constructor
   }
+  
+  
+
+  /**
+   * @param firstName
+   * @param lastName
+   * @param telephone
+   * @param telephoneType
+   */
+  public ContactFormData(String firstName, String lastName, String telephone, String telephoneType) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.telephone = telephone;
+    this.telephoneType = telephoneType;
+  }
+
+
 
   /**
    * Creates contactFormData based off contact.
