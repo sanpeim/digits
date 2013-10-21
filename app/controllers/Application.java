@@ -37,7 +37,6 @@ public class Application extends Controller {
     Map<String, Boolean> telephoneTypeMap = TelephoneTypes.getTypes(data.telephoneType);
     List<String> level = GradeLevel.getLevel(data.level);
     return ok(NewContact.render(formData, telephoneTypeMap, level));
-
   }
 
   /**

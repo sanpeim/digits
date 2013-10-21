@@ -96,6 +96,11 @@ public class ContactFormData {
     if (!TelephoneTypes.isType(telephoneType)) {
       errors.add(new ValidationError("telephoneType", "Telephone Type is invalid"));
     }
+    
+    if (!GradeLevel.isType(level)) {
+      errors.add(new ValidationError("level", "Standing is not choosen"));
+    }
+    
 
     return errors.isEmpty() ? null : errors;
   }
