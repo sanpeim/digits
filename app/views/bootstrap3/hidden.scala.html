@@ -1,0 +1,11 @@
+@(field: Field)
+
+    <div class="form-group @if(field.hasErrors) {has-error}">
+    <div class="col-sm-12">
+      <input type="hidden" 
+             class="form-control" 
+             id="@field.id" 
+             name="@field.name" 
+             value="@field.value.getOrElse("")"/>
+    </div>
+  </div>
