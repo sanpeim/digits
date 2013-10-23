@@ -9,7 +9,6 @@ import views.formdata.ContactFormData;
  *
  */
 public class Global extends GlobalSettings {
-
   /**
    *
    *@param app the application.
