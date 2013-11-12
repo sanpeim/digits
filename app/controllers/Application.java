@@ -9,7 +9,6 @@ import views.formdata.ContactFormData;
 import views.formdata.TelephoneTypes;
 import views.html.Index;
 import views.html.NewContact;
-import views.formdata.ContactFormData;
 
 /**
  * Implements the controllers for this application.

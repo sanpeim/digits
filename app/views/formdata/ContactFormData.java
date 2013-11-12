@@ -3,7 +3,6 @@ package views.formdata;
 import java.util.ArrayList;
 import java.util.List;
 import models.Contact;
-import play.data.validation.Validation;
 import play.data.validation.ValidationError;
 
 /**
