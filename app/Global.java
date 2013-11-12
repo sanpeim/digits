@@ -1,4 +1,5 @@
 import models.ContactDB;
+import models.UserInfoDB;
 import play.Application;
 import play.GlobalSettings;
 import views.formdata.ContactFormData;
@@ -15,6 +16,9 @@ public class Global extends GlobalSettings {
    *@param app the application.
    */
   public void onStart(Application app) {
+    
+    UserInfoDB.addUserInfo("John Smith", "smith@example.com", "password");
+    
     ContactDB.addContact(new ContactFormData("A", "B", "111-222-3333", "Home"));
     ContactDB.addContact(new ContactFormData("B", "C", "222-333-4444", "Work"));
     ContactDB.addContact(new ContactFormData("C", "D", "333-444-5555", "Mobile"));
