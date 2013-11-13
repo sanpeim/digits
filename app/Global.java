@@ -2,6 +2,7 @@ import models.ContactDB;
 import models.UserInfoDB;
 import play.Application;
 import play.GlobalSettings;
+import play.Play;
 import views.formdata.ContactFormData;
 
 /**
@@ -17,13 +18,14 @@ public class Global extends GlobalSettings {
    */
   public void onStart(Application app) {
     
-    UserInfoDB.addUserInfo("John Smith", "smith@example.com", "password");
-    ContactDB.addContact("smith@example.com", new ContactFormData("A", "Smith", "111-222-3333", "Home"));
-    ContactDB.addContact("smith@example.com", new ContactFormData("B", "Smith", "222-333-4444", "Work"));
+    String adminEmail = Play.application().configuration().getString("digits.admin.email");
+    String adminPassword = Play.application().configuration().getString("digits.admin.password");
     
-    UserInfoDB.addUserInfo("John Smithy", "smithy@example.com", "password");
-    ContactDB.addContact("smithy@example.com", new ContactFormData("C", "Smithy", "333-444-5555", "Mobile"));
-    ContactDB.addContact("smithy@example.com", new ContactFormData("D", "Smithy", "444-555-6666", "Home"));
-
+    UserInfoDB.defineAdmin("Administrator", adminEmail, adminPassword);
+    
+    if (UserInfoDB.adminDefined){
+      ContactDB.addContact(adminEmail, new ContactFormData("A", "Smith", "111-222-3333", "Home"));
+      ContactDB.addContact(adminEmail, new ContactFormData("B", "Smith", "222-333-4444", "Work"));
+    }
   }
 }
